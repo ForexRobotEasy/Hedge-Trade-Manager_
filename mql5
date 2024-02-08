@@ -1,0 +1,59 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                                   Hedge Trade Manager|
+//|                                                     forexroboteasy.com|
+//|                                                  Forex Robot Easy Team|
+//+------------------------------------------------------------------+
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+#define MANUAL_EXECUTION true  // Enable manual execution of hedge trades
+#define AUTOMATED_EXECUTION true  // Enable automated execution of hedge trades
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+input int pipLossThreshold = 10;  // Pip loss threshold to trigger a hedge trade
+input int takeProfit = 20;  // Take profit for hedge trades
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+   // Check if previous trade has incurred a certain amount of loss
+   if (CheckLoss() >= pipLossThreshold)
+   {
+      // Check if manual execution is enabled and execute hedge trade
+      if (MANUAL_EXECUTION)
+      {
+         ExecuteHedgeTrade();
+      }
+      
+      // Check if automated execution is enabled and execute hedge trade
+      if (AUTOMATED_EXECUTION)
+      {
+         ExecuteHedgeTrade();
+      }
+   }
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+int CheckLoss()
+{
+   // Implement logic to calculate the loss of the previous trade in pips
+   // Return the calculated loss
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+void ExecuteHedgeTrade()
+{
+   // Implement logic to execute the hedge trade
+   // Set take profit for hedge trade
+   // Close hedge trade when take profit is reached
+}
